@@ -1,0 +1,4 @@
+#ifndef CPPPROJ_HEADER_A_H_
+#define CPPPROJ_HEADER_A_H_
+
+#endif  // CPPPROJ_HEADER_A_H_
