@@ -5,10 +5,6 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/cmake)
   set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
   get_filename_component(C_V__SOURCE_MODULE_NAME ${CMAKE_SOURCE_DIR} NAME)
   set(C_V__LIBRARIES_HOME ${CMAKE_SOURCE_DIR}/lib)
-else() # we are in modules/{module}
-  set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/../../cmake)
-  get_filename_component(C_V__SOURCE_MODULE_NAME ${CMAKE_SOURCE_DIR} NAME)
-  set(C_V__LIBRARIES_HOME ${CMAKE_SOURCE_DIR}/../../lib)
 endif()
 
 message ("-- CMAKE_MODULE_PATH = " ${CMAKE_MODULE_PATH} )
@@ -16,12 +12,11 @@ message ("-- CMAKE_SOURCE_DIR = " ${CMAKE_SOURCE_DIR} )
 message ("-- C_V__SOURCE_MODULE_NAME = " ${C_V__SOURCE_MODULE_NAME} )
 message ("-- C_V__LIBRARIES_HOME = " ${C_V__LIBRARIES_HOME} )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -pedantic") #-Wall -Werror -pedantic ## -static-libstdc++ -static-libgcc
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -pedantic") #-Wall -Werror -pedantic ## -static-libstdc++ -static-libgcc
 message ("-- CMAKE_CXX_FLAGS = " ${CMAKE_CXX_FLAGS} )
 
-# file(GLOB C_V__MODULE_HEADERS "${CMAKE_SOURCE_DIR}/include/*.hpp" "${CMAKE_SOURCE_DIR}/include/*.h")
-file(GLOB C_V__MODULE_SOURCES "${CMAKE_SOURCE_DIR}/src/*.cpp" "${CMAKE_SOURCE_DIR}/src/*.cc")
-file(GLOB C_V__MODULE_TEST_SOURCES "${CMAKE_SOURCE_DIR}/test/*.cpp" "${CMAKE_SOURCE_DIR}/test/*.cc")
+file(GLOB C_V__MODULE_SOURCES "${CMAKE_SOURCE_DIR}/src/*.cc")
+file(GLOB C_V__MODULE_TEST_SOURCES "${CMAKE_SOURCE_DIR}/test/*.cc")
 
 include_directories("${CMAKE_SOURCE_DIR}/include/")
 
